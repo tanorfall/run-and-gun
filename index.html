@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RUN & GUN · Saison 01 · Norta Films</title>
+<meta name="description" content="Run & Gun, saison 01 : 5 artistes émergents, 5 clips, une journée de tournage chacun. Par Norta Films, Dakar. Candidatures ouvertes.">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="canonical" href="https://tanorfall.github.io/run-and-gun/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Norta Films">
+<meta property="og:title" content="RUN & GUN · Une journée. Un clip. Pas d'excuses.">
+<meta property="og:description" content="5 artistes. 5 clips. Une journée chacun. Norta Films lance Run & Gun, saison 01, à Dakar. Postule.">
+<meta property="og:url" content="https://tanorfall.github.io/run-and-gun/">
+<meta property="og:image" content="https://tanorfall.github.io/run-and-gun/img/og-run-and-gun.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RUN●GUN par Norta Films : une journée, un clip.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RUN & GUN · Norta Films">
+<meta name="twitter:description" content="5 artistes. 5 clips. Une journée chacun.">
+<meta name="twitter:image" content="https://tanorfall.github.io/run-and-gun/img/og-run-and-gun.jpg">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Geist+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="preload" as="image" href="img/bts-matos-moniteur-plateau-01.jpg">
+<link rel="stylesheet" href="css/style.css">
+<script>
+  // Animations activées seulement si le visiteur ne demande pas de mouvement réduit.
+  (function () {
+    var d = document.documentElement; d.classList.add('js');
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('motion');
+  })();
+</script>
+</head>
+<body>
+<!-- Clap de chargement (masqué si mouvement réduit ou sans JavaScript) -->
+<div class="clap" aria-hidden="true">
+  <div class="clap__board">
+    <div class="clap__stick"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="clap__base"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="clap__slate">
+      <div class="clap__row clap__row--title"><span>Prod.</span><b>RUN<span class="clap__dot"></span>GUN</b></div>
+      <div class="clap__grid">
+        <div><span>Scène</span><b>01</b></div>
+        <div><span>Prise</span><b>01</b></div>
+        <div><span>Saison</span><b>01</b></div>
+      </div>
+      <div class="clap__row"><span>Réal.</span><b>Tanor Fall</b></div>
+      <div class="clap__row"><span>Prod.</span><b>Norta Films · Dakar</b></div>
+    </div>
+  </div>
+</div>
+<script>
+  // Clap : joue une fois au chargement, puis libère l'entrée du hero (événement « clap:fin »).
+  (function () {
+    var d = document.documentElement, c = document.querySelector('.clap');
+    function fin() { if (!c) return; d.classList.remove('is-clap'); c.parentNode.removeChild(c); c = null; window.__clapFini = true; window.dispatchEvent(new Event('clap:fin')); }
+    if (!d.classList.contains('motion')) { fin(); return; }
+    d.classList.add('is-clap');
+    c.addEventListener('animationend', function (e) { if (e.animationName === 'clap-sortie') fin(); });
+    setTimeout(fin, 3200); // filet de sécurité
+  })();
+</script>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<!-- ============ EN-TÊTE ============ -->
+<header class="top" id="top">
+  <a class="top__logo" href="#hero" aria-label="Norta Films, retour en haut">
+    <img src="img/norta-logo-white.svg" alt="" width="40" height="31">
+    <span class="mono">Norta<br>Films</span>
+  </a>
+  <nav class="top__nav" aria-label="Navigation principale">
+    <a href="#histoire">L'histoire</a>
+    <a href="#clips">Clips</a>
+    <a href="#deal">Le deal</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <div class="top__rec mono" aria-hidden="true"><i class="rec-dot"></i><span data-timecode>00:00:00:00</span></div>
+  <a class="btn btn--lime btn--sm" href="#postuler">Postuler</a>
+</header>
+
+<div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+
+<main id="contenu">
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero" id="hero" aria-labelledby="hero-title">
+  <div class="hero__bg" aria-hidden="true">
+    <img src="img/bts-matos-moniteur-plateau-01.jpg" alt="" width="1600" height="1067" fetchpriority="high">
+  </div>
+  <div class="hero__frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="hero__meta mono">
+    <span class="hero__rec"><i class="rec-dot"></i> REC</span>
+    <span data-timecode>00:00:00:00</span>
+    <span class="hide-sm">Saison 01 · Dakar</span>
+  </div>
+  <div class="hero__body">
+    <p class="hero__kicker mono">Norta Films présente</p>
+    <h1 class="hero__title" id="hero-title">
+      <span class="rg" aria-label="Run and Gun">
+        <span class="rg__word" aria-hidden="true"><span>R</span><span>U</span><span>N</span></span><span class="rg__dot" aria-hidden="true"></span><span class="rg__word" aria-hidden="true"><span>G</span><span>U</span><span>N</span></span>
+      </span>
+    </h1>
+    <p class="hero__sub">5 artistes. 5 clips. <span class="hl">Une journée chacun.</span></p>
+    <div class="hero__cta">
+      <a class="btn btn--lime" href="#postuler" data-cursor="Go">Postuler <span aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost" href="#clips">Voir nos clips</a>
+    </div>
+  </div>
+  <div class="hero__foot mono">
+    <span>Une journée. Un clip. Pas d'excuses.</span>
+    <span class="hero__scroll" aria-hidden="true">Défile <i></i></span>
+  </div>
+</section>
+
+<!-- ============ 2. L'HISTOIRE ============ -->
+<section class="sec sec--light story" id="histoire" aria-labelledby="story-title">
+  <div class="wrap">
+    <p class="label mono">01 · L'histoire</p>
+    <h2 class="visually-hidden" id="story-title">L'histoire de Run &amp; Gun</h2>
+    <div class="story__text" data-words>
+      <p>On n'avait pas de <mark>budget.</mark></p>
+      <p>Rien ne se passait comme prévu.</p>
+      <p>Au cinéma, ça porte un nom&nbsp;: <mark>Run&nbsp;&amp;&nbsp;Gun.</mark></p>
+      <p>Le talent, ils l'ont. Le budget, non.</p>
+      <p>Le prochain clip signé Norta Films, c'est peut-être <mark>le&nbsp;tien.</mark></p>
+    </div>
+    <div class="story__foot">
+      <figure class="story__card reveal">
+        <span class="story__img"><img src="img/bts-gimbal-rue-gros-plan-01.jpg" alt="Un gimbal Ronin en gros plan, prêt à tourner devant un étal de rue à Dakar." loading="lazy" width="1600" height="1067"></span>
+        <figcaption class="pill">Dakar, au début</figcaption>
+      </figure>
+      <p class="story__note reveal">Run &amp; Gun, c'est tourner vite, léger, sans filet, et livrer quand même un vrai film. <em class="serif">C'est l'école de Norta.</em> Cette saison, on l'ouvre à cinq artistes qui ont le son mais pas encore l'image.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. CRÉDIBILITÉ ============ -->
+<section class="sec sec--dark cred" id="norta" aria-labelledby="cred-title">
+  <div class="wrap">
+    <p class="label mono">02 · Qui tourne</p>
+    <h2 class="h2" id="cred-title" data-split>Norta Films sait faire <span class="hl">beaucoup avec peu.</span></h2>
+
+    <ul class="stats" role="list">
+      <li class="stat reveal"><span class="stat__n" data-count="8">8</span><span class="stat__l mono">Clips à regarder</span><span class="stat__d">Des clips musicaux, à voir juste en dessous</span></li>
+      <li class="stat reveal"><span class="stat__n" data-count="3">3</span><span class="stat__l mono">Langues de tournage</span><span class="stat__d">Français, wolof, anglais</span></li>
+      <li class="stat reveal"><span class="stat__n" data-count="7">7</span><span class="stat__l mono">Artistes à l'affiche</span><span class="stat__d">De Keulthieu à Mnsieur Kash</span></li>
+      <li class="stat reveal"><span class="stat__n"><span data-count="24">24</span><small>h</small></span><span class="stat__l mono">Pour te répondre</span><span class="stat__d">Basé à Dakar, sur le terrain partout</span></li>
+    </ul>
+  </div>
+
+  <div class="clients" aria-label="Ils ont fait confiance à Norta Films">
+    <p class="label mono wrap">Ils nous ont fait confiance</p>
+    <div class="marquee">
+      <ul class="marquee__track" role="list">
+        <li>Mika Tawou</li><li>One Lyrical</li><li>Keulthieu The Name</li><li>Calail Christ</li><li>Xhalil Xms</li><li>Le Dôgô</li><li>Mnsieur Kash</li>
+      </ul>
+      <ul class="marquee__track" role="list" aria-hidden="true">
+        <li>Mika Tawou</li><li>One Lyrical</li><li>Keulthieu The Name</li><li>Calail Christ</li><li>Xhalil Xms</li><li>Le Dôgô</li><li>Mnsieur Kash</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. CLIPS ============ -->
+<section class="sec sec--light clips" id="clips" aria-labelledby="clips-title">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="label mono">03 · Déjà tourné</p>
+      <h2 class="h2" id="clips-title" data-split>Les preuves, <span class="hl">en images.</span></h2>
+      <p class="lead">Des clips musicaux, rien que ça. Clique pour regarder.</p>
+    </div>
+
+    <ul class="grid-clips" role="list">
+      <li class="clip clip--xl reveal">
+        <button class="clip__btn" type="button" data-video="youtube:J9fLXdnk2As" data-title="Keulthieu The Name · L.B.L.D" data-cursor="Lire">
+          <span class="clip__media"><img src="img/clip-keulthieu-lbld.jpg" alt="" loading="lazy" width="1280" height="720"></span>
+          <span class="clip__play" aria-hidden="true"></span>
+          <span class="clip__info"><span class="mono">Clip · Réalisation, D.A.</span><span class="clip__t">Keulthieu «&nbsp;L.B.L.D&nbsp;»</span></span>
+          <span class="visually-hidden">Lire la vidéo</span>
+        </button>
+      </li>
+      <li class="clip reveal">
+        <button class="clip__btn" type="button" data-video="youtube:R3tNuva0LcU" data-title="Mika Tawou · Demb, Boomrang #2" data-cursor="Lire">
+          <span class="clip__media"><img src="img/clip-mika-boomrang-2.jpg" alt="" loading="lazy" width="1280" height="720"></span>
+          <span class="clip__play" aria-hidden="true"></span>
+          <span class="clip__info"><span class="mono">Clip · Réalisation, cadrage, post-prod</span><span class="clip__t">Mika Tawou «&nbsp;Demb — Boomrang #2&nbsp;»</span></span>
+          <span class="visually-hidden">Lire la vidéo</span>
+        </button>
+      </li>
+      <li class="clip reveal">
+        <button class="clip__btn" type="button" data-video="youtube:H57FDwMDe1I" data-title="Mika Tawou · Demb, Boomrang #1" data-cursor="Lire">
+          <span class="clip__media"><img src="img/clip-mika-boomrang-1.jpg" alt="" loading="lazy" width="1280" height="720"></span>
+          <span class="clip__play" aria-hidden="true"></span>
+          <span class="clip__info"><span class="mono">Clip · Réalisation, cadrage, post-prod</span><span class="clip__t">Mika Tawou «&nbsp;Demb — Boomrang #1&nbsp;»</span></span>
+          <span class="visually-hidden">Lire la vidéo</span>
+        </button>
+      </li>
+      <li class="clip reveal">
+        <button class="clip__btn" type="button" data-video="drive:1CfD2eOAQFASo9y4TyUiOnjWZLn-BQcxS" data-title="One Lyrical · Promo" data-cursor="Lire">
+          <span class="clip__media"><img src="img/still-clip-one-lyrical-car-rapide-01.jpg" alt="" loading="lazy" width="1600" height="900"></span>
+          <span class="clip__play" aria-hidden="true"></span>
+          <span class="clip__info"><span class="mono">Clip · Production, réalisation</span><span class="clip__t">One Lyrical «&nbsp;Promo&nbsp;»</span></span>
+          <span class="visually-hidden">Lire la vidéo</span>
+        </button>
+      </li>
+      <li class="clip reveal">
+        <button class="clip__btn" type="button" data-video="youtube:lzudglAKMF0" data-title="Calail Christ · PLATA" data-cursor="Lire">
+          <span class="clip__media"><img src="img/clip-calail-christ-plata.jpg" alt="" loading="lazy" width="1280" height="720"></span>
+          <span class="clip__play" aria-hidden="true"></span>
+          <span class="clip__info"><span class="mono">Clip officiel</span><span class="clip__t">Calail Christ «&nbsp;PLATA&nbsp;»</span></span>
+          <span class="visually-hidden">Lire la vidéo</span>
+        </button>
+      </li>
+      <li class="clip reveal">
+        <button class="clip__btn" type="button" data-video="youtube:W_bhlJql-RA" data-title="Xhalil Xms · I Know" data-cursor="Lire">
+          <span class="clip__media"><img src="img/clip-xhalil-xms-i-know.jpg" alt="" loading="lazy" width="1280" height="720"></span>
+          <span class="clip__play" aria-hidden="true"></span>
+          <span class="clip__info"><span class="mono">Clip officiel</span><span class="clip__t">Xhalil Xms «&nbsp;I Know&nbsp;»</span></span>
+          <span class="visually-hidden">Lire la vidéo</span>
+        </button>
+      </li>
+      <li class="clip reveal">
+        <button class="clip__btn" type="button" data-video="youtube:0DbgWczSqLM" data-title="Le Dôgô · KARAKO ft. Starkingboycrak" data-cursor="Lire">
+          <span class="clip__media"><img src="img/clip-le-dogo-karako.jpg" alt="" loading="lazy" width="1280" height="720"></span>
+          <span class="clip__play" aria-hidden="true"></span>
+          <span class="clip__info"><span class="mono">Clip · feat. Starkingboycrak</span><span class="clip__t">Le Dôgô «&nbsp;KARAKO&nbsp;»</span></span>
+          <span class="visually-hidden">Lire la vidéo</span>
+        </button>
+      </li>
+      <li class="clip reveal">
+        <button class="clip__btn" type="button" data-video="youtube:GWJNAzalFt8" data-title="Mnsieur Kash · Développe" data-cursor="Lire">
+          <span class="clip__media"><img src="img/clip-mnsieur-kash-developpe.jpg" alt="" loading="lazy" width="1280" height="720"></span>
+          <span class="clip__play" aria-hidden="true"></span>
+          <span class="clip__info"><span class="mono">Clip officiel</span><span class="clip__t">Mnsieur Kash «&nbsp;Développe&nbsp;»</span></span>
+          <span class="visually-hidden">Lire la vidéo</span>
+        </button>
+      </li>
+      <li class="clip clip--cta reveal">
+        <a class="clip__more" href="https://tanorfall-site.vercel.app/" target="_blank" rel="noopener" data-cursor="Voir">
+          <span class="mono">Portfolio complet</span>
+          <span class="clip__more-t">Le portfolio de Tanor Fall <span aria-hidden="true">↗</span></span>
+          <span class="small">Plus de films et la galerie, sur son site.</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 5. AVANT / APRÈS ============ -->
+<section class="sec sec--dark grade" id="etalonnage" aria-labelledby="grade-title">
+  <div class="wrap grade__in">
+    <div class="grade__text">
+      <p class="label mono">04 · Étalonnage</p>
+      <h2 class="h2" id="grade-title" data-split>La couleur <span class="hl">raconte.</span></h2>
+      <p class="lead">Même image, même cadre. Une autre histoire. Sur chaque clip Run &amp; Gun, l'étalonnage est fait par Norta, comme sur nos autres clips.</p>
+      <p class="mono grade__src">Mika Tawou · Demb — Boomrang #2</p>
+    </div>
+    <div class="compare reveal" data-compare style="--pos:50%">
+      <img class="compare__img" src="img/still-clip-mika-boomrang-01.jpg" alt="Après étalonnage : Mika Tawou dans une fumée rouge, couleurs denses et contrastées." loading="lazy" width="1280" height="720">
+      <div class="compare__before">
+        <img class="compare__img" src="img/still-clip-mika-boomrang-avant.jpg" alt="Avant étalonnage : la même image, plate et délavée, telle que sortie de la caméra." loading="lazy" width="1280" height="720">
+      </div>
+      <span class="compare__tag compare__tag--l mono">Avant</span>
+      <span class="compare__tag compare__tag--r mono">Après</span>
+      <div class="compare__handle" aria-hidden="true"><span>⟷</span></div>
+      <label class="visually-hidden" for="compare-range">Comparer l'image avant et après étalonnage</label>
+      <input class="compare__range" id="compare-range" type="range" min="0" max="100" value="50" step="1">
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. COULISSES ============ -->
+<section class="sec sec--light bts" id="coulisses" aria-labelledby="bts-title">
+  <div class="wrap">
+    <div class="sec__head sec__head--row">
+      <div>
+        <p class="label mono">05 · Coulisses</p>
+        <h2 class="h2" id="bts-title" data-split>Sur le plateau, <span class="hl">ça court.</span></h2>
+      </div>
+      <p class="lead">Une petite équipe, du matériel qui tient dans un sac, et des décisions prises en direct. Voilà à quoi ressemble une journée Norta.</p>
+    </div>
+    <div class="mosaic">
+      <figure class="tile tile--tall" data-speed="8"><img src="img/plateau-operateur-gimbal-nb.jpg" alt="Cadreur au gimbal sous la lanterne, en intérieur, en noir et blanc." loading="lazy" width="900" height="1600"></figure>
+      <figure class="tile" data-speed="-6"><img src="img/bts-matos-camera-moniteur-01.jpg" alt="Main sur la caméra Sony, le retour image allumé sur le plateau." loading="lazy" width="1600" height="1068"></figure>
+      <figure class="tile" data-speed="-10"><img src="img/still-clip-one-lyrical-car-rapide-02.jpg" alt="Image du clip One Lyrical : l'artiste à la portière d'un car rapide peint, lunettes bleues." loading="lazy" width="1600" height="900"></figure>
+      <figure class="tile" data-speed="5"><img src="img/plateau-rig-mains-01.jpg" alt="Gros plan sur le rig : caméra, optique et poignées du gimbal, le cadreur concentré sur son cadre." loading="lazy" width="1600" height="1144"></figure>
+      <figure class="tile" data-speed="9"><img src="img/plateau-lumiere-nb.jpg" alt="Technicien qui oriente une lumière LED sur le plateau." loading="lazy" width="1600" height="1094"></figure>
+      <figure class="tile" data-speed="-8"><img src="img/portrait-equipe-moniteur-01.jpg" alt="Le cadreur et le réalisateur penchés sur l'écran de contrôle." loading="lazy" width="1600" height="1067"></figure>
+      <figure class="tile tile--tall" data-speed="-4"><img src="img/still-masque-contrejour-01.jpg" alt="Image tournée par Norta Films : un personnage masqué, à contre-jour, entre les filaos." loading="lazy" width="1600" height="900" style="object-position:46% 50%"></figure>
+      <figure class="tile tile--tall" data-speed="6"><img src="img/bts-cadreur-accroupi-plateau-01.jpg" alt="Cadreur accroupi à hauteur de table, caméra et gimbal calés pour un plan bas, sous la lumière du plateau." loading="lazy" width="1068" height="1600"></figure>
+      <figure class="tile" data-speed="-5"><img src="img/still-clip-keulthieu-lbld-couchant-03.jpg" alt="Image du clip Keulthieu « L.B.L.D » : silhouette face au soleil couchant, sur la mer." loading="lazy" width="1600" height="900"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. LE DEAL ============ -->
+<section class="sec sec--dark deal" id="deal" aria-labelledby="deal-title">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="label mono">06 · Le deal</p>
+      <h2 class="h2" id="deal-title" data-split>Un clip pro. Une journée. <span class="hl">150K.</span></h2>
+    </div>
+
+    <ul class="deal__grid" role="list">
+      <li class="dcard dcard--lime reveal"><span class="dcard__n">150K</span><span class="mono">FCFA en cash</span><p>Payés en une fois dans les 72&nbsp;h après la sélection. Pas d'acompte.</p></li>
+      <li class="dcard reveal"><span class="dcard__n">1</span><span class="mono">Jour de tournage</span><p>Jusqu'à 12&nbsp;h sur place, pauses comprises. Pas une minute de plus.</p></li>
+      <li class="dcard reveal"><span class="dcard__n">7</span><span class="mono">Jours pour livrer</span><p>Le clip monté et étalonné, en HD, prêt à publier.</p></li>
+      <li class="dcard reveal"><span class="dcard__n">2</span><span class="mono">Séries de retouches</span><p>Tes demandes regroupées en un message, traitées sous 3 jours.</p></li>
+      <li class="dcard reveal"><span class="dcard__n">9:16</span><span class="mono">Teaser vertical inclus</span><p>Pour Reels, TikTok et statuts WhatsApp.</p></li>
+    </ul>
+
+    <div class="deal__cols">
+      <div class="deal__col reveal">
+        <h3 class="h3">Norta Films apporte</h3>
+        <ul class="checks" role="list">
+          <li>La direction artistique et la réalisation</li>
+          <li>L'équipe technique et le matériel de tournage</li>
+          <li>Le montage et l'étalonnage</li>
+          <li>Le clip final et un teaser vertical, sous 7 jours</li>
+          <li>Deux séries de retouches</li>
+          <li>La mise en avant sur @norta_films, en collab</li>
+        </ul>
+      </div>
+      <div class="deal__col deal__col--you reveal">
+        <h3 class="h3">Toi, tu prends en charge</h3>
+        <ul class="checks checks--you" role="list">
+          <li>Le transport de l'équipe et du matériel</li>
+          <li>Les repas et l'eau de toute l'équipe</li>
+          <li>Les lieux de tournage et les autorisations</li>
+          <li>Les figurants, les tenues, le maquillage, les accessoires</li>
+        </ul>
+        <p class="small">La liste exacte est fixée ensemble pendant la réunion de préparation.</p>
+      </div>
+    </div>
+
+    <div class="rule reveal">
+      <p class="rule__big"><span class="hl">Pas payé, pas confirmé.</span></p>
+      <p>Tu as 72&nbsp;h après l'annonce de ta sélection pour signer et régler les 150&nbsp;000&nbsp;FCFA. Sans paiement, la place passe au premier de la liste d'attente. Seuls les artistes qui ont payé sont annoncés publiquement.</p>
+    </div>
+
+    <div class="places" aria-label="Les 5 places : 4 choisies par Norta Films, la 5e par la communauté">
+      <p class="label mono">5 places</p>
+      <ol class="places__row">
+        <li class="place"><span class="mono">01</span><b>Choix Norta</b></li>
+        <li class="place"><span class="mono">02</span><b>Choix Norta</b></li>
+        <li class="place"><span class="mono">03</span><b>Choix Norta</b></li>
+        <li class="place"><span class="mono">04</span><b>Choix Norta</b></li>
+        <li class="place place--vote"><span class="mono">05</span><span class="place__q" aria-hidden="true">?</span><b>C'est vous</b></li>
+      </ol>
+      <p class="small">4 artistes choisis par Norta Films. Le 5e, c'est la communauté qui vote.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. COMMENT ÇA MARCHE ============ -->
+<section class="sec sec--light steps" id="etapes" aria-labelledby="steps-title">
+  <div class="wrap steps__in">
+    <div class="steps__head">
+      <p class="label mono">07 · Comment ça marche</p>
+      <h2 class="h2" id="steps-title" data-split>De ta candidature <span class="hl">à la sortie.</span></h2>
+      <p class="lead">Six étapes, un calendrier serré. Comme un tournage Run &amp; Gun.</p>
+      <a class="btn btn--dark" href="#postuler">Je postule</a>
+    </div>
+    <ol class="timeline" data-timeline>
+      <li class="tl"><span class="tl__dot" aria-hidden="true"></span><span class="mono tl__n">01 · 10 jours</span><h3>Candidature</h3><p>Tu envoies ton son, tes réseaux et quelques mots sur toi. Les candidatures restent ouvertes 10 jours.</p></li>
+      <li class="tl"><span class="tl__dot" aria-hidden="true"></span><span class="mono tl__n">02 · Sélection</span><h3>On écoute tout</h3><p>Norta choisit 4 artistes. La communauté vote pour le 5e en story, pendant 48&nbsp;h.</p></li>
+      <li class="tl"><span class="tl__dot" aria-hidden="true"></span><span class="mono tl__n">03 · 72 heures</span><h3>Tu confirmes</h3><p>Tu signes le contrat et tu règles les 150&nbsp;000&nbsp;FCFA en cash. Pas payé, pas confirmé.</p></li>
+      <li class="tl"><span class="tl__dot" aria-hidden="true"></span><span class="mono tl__n">04 · 1 journée</span><h3>Tournage</h3><p>Réunion de préparation, puis une journée sur le terrain. Les coulisses en direct en story.</p></li>
+      <li class="tl"><span class="tl__dot" aria-hidden="true"></span><span class="mono tl__n">05 · 7 jours</span><h3>Livraison</h3><p>Clip et teaser vertical livrés sous 7 jours. Deux séries de retouches.</p></li>
+      <li class="tl"><span class="tl__dot" aria-hidden="true"></span><span class="mono tl__n">06 · Out now</span><h3>Sortie</h3><p>Un clip par semaine, publié en collab avec @norta_films. Ton public découvre Norta, le public de Norta te découvre.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 9. FORMULAIRE ============ -->
+<section class="sec sec--dark apply" id="postuler" aria-labelledby="apply-title">
+  <div class="apply__bg" aria-hidden="true"><img src="img/still-drone-dakar-stade-01.jpg" alt="" loading="lazy" width="1600" height="900"></div>
+  <div class="wrap apply__in">
+    <div class="apply__intro">
+      <p class="label mono"><i class="rec-dot"></i> 08 · Candidatures ouvertes</p>
+      <h2 class="h2" id="apply-title" data-split>Le prochain clip, c'est peut-être <span class="hl">le&nbsp;tien.</span></h2>
+      <p class="lead">Remplis le formulaire en 3 minutes. On écoute toutes les candidatures.</p>
+      <ul class="apply__mini mono" role="list">
+        <li>Un son déjà enregistré</li>
+        <li>Tes réseaux</li>
+        <li>150 000 FCFA prêts sous 72 h</li>
+      </ul>
+    </div>
+
+    <form class="form" id="form" novalidate>
+      <p class="form__req small">Les champs marqués <span aria-hidden="true">*</span><span class="visually-hidden">d'un astérisque</span> sont obligatoires.</p>
+      <div class="form__error-summary" id="error-summary" role="alert" hidden></div>
+
+      <fieldset>
+        <legend class="mono">Toi</legend>
+        <div class="field">
+          <label for="f-artiste">Nom d'artiste <span aria-hidden="true">*</span></label>
+          <input id="f-artiste" name="nom_artiste" type="text" autocomplete="nickname" required maxlength="80">
+          <p class="field__err" id="f-artiste-err"></p>
+        </div>
+        <div class="field">
+          <label for="f-nom">Nom complet <span aria-hidden="true">*</span></label>
+          <input id="f-nom" name="nom" type="text" autocomplete="name" required maxlength="120">
+          <p class="field__err" id="f-nom-err"></p>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="f-ville">Ville <span aria-hidden="true">*</span></label>
+            <input id="f-ville" name="ville" type="text" autocomplete="address-level2" required maxlength="80" placeholder="Dakar">
+            <p class="field__err" id="f-ville-err"></p>
+          </div>
+          <div class="field">
+            <label for="f-genre">Genre musical <span aria-hidden="true">*</span></label>
+            <select id="f-genre" name="genre" required>
+              <option value="">Choisis…</option>
+              <option>Rap</option><option>Drill</option><option>Afrobeats</option><option>Mbalax</option><option>R&amp;B / Soul</option><option>Afro-pop</option><option>Dancehall</option><option>Gospel</option><option>Autre</option>
+            </select>
+            <p class="field__err" id="f-genre-err"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="f-wa">WhatsApp <span aria-hidden="true">*</span></label>
+            <input id="f-wa" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+221 77 000 00 00" aria-describedby="f-wa-hint">
+            <p class="field__hint" id="f-wa-hint">Avec l'indicatif si tu n'es pas au Sénégal.</p>
+            <p class="field__err" id="f-wa-err"></p>
+          </div>
+          <div class="field">
+            <label for="f-mail">E-mail <span aria-hidden="true">*</span></label>
+            <input id="f-mail" name="email" type="email" autocomplete="email" required placeholder="toi@exemple.com">
+            <p class="field__err" id="f-mail-err"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend class="mono">Ton son</legend>
+        <div class="field morceau" role="group" aria-labelledby="f-morceau-label" aria-describedby="f-morceau-hint">
+          <p class="field__label" id="f-morceau-label">Ton morceau <span aria-hidden="true">*</span></p>
+          <p class="field__hint" id="f-morceau-hint">Envoie le fichier <strong>ou</strong> colle un lien. Au moins un des deux.</p>
+          <div class="drop" id="f-drop">
+            <input class="visually-hidden" id="f-fichier" name="son_fichier" type="file" accept="audio/mpeg,audio/wav,audio/x-wav,audio/mp4,audio/x-m4a,audio/aac,audio/ogg,audio/flac,.mp3,.wav,.m4a,.aac,.ogg,.flac" aria-describedby="f-drop-hint">
+            <div class="drop__empty" data-drop-empty>
+              <svg class="drop__icon" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 12h3M8 7v10M13 3v18M18 8v8M23 5v14M28 10v4M33 6v12M38 9v6M43 4v16M46 12h0"/></svg>
+              <p class="drop__t"><span class="drop__drag">Glisse ton fichier ici, ou</span></p>
+              <label class="btn btn--ghost btn--sm drop__btn" for="f-fichier">Choisir un fichier</label>
+              <p class="field__hint" id="f-drop-hint">MP3, WAV, M4A, AAC, OGG ou FLAC · 10&nbsp;Mo maximum</p>
+            </div>
+            <div class="drop__file" data-drop-file hidden>
+              <div class="drop__meta" aria-live="polite">
+                <span class="drop__ok" aria-hidden="true"></span>
+                <span class="drop__name" id="f-file-name"></span>
+                <span class="drop__size mono" id="f-file-size"></span>
+              </div>
+              <audio class="drop__audio" id="f-file-audio" controls preload="metadata"></audio>
+              <div class="drop__actions">
+                <label class="linkbtn" for="f-fichier">Changer de fichier</label>
+                <button class="linkbtn" type="button" id="f-file-remove">Retirer le fichier</button>
+              </div>
+            </div>
+          </div>
+          <p class="field__err" id="f-morceau-err"></p>
+        </div>
+        <p class="or mono" aria-hidden="true"><span>ou</span></p>
+        <div class="field">
+          <label for="f-son">Lien du son <span class="opt">(si tu n'envoies pas de fichier)</span></label>
+          <input id="f-son" name="son_url" type="url" inputmode="url" placeholder="https://audiomack.com/…" aria-describedby="f-son-hint">
+          <p class="field__hint" id="f-son-hint">Audiomack, SoundCloud, YouTube, Google Drive… Vérifie que le lien est public.</p>
+          <p class="field__err" id="f-son-err"></p>
+        </div>
+        <div class="field">
+          <label for="f-pres">Présente-toi en quelques lignes <span aria-hidden="true">*</span></label>
+          <textarea id="f-pres" name="presentation" rows="5" maxlength="500" required aria-describedby="f-pres-count" placeholder="Qui tu es, ce que raconte ce son, pourquoi maintenant."></textarea>
+          <p class="field__hint field__count" id="f-pres-count" aria-live="polite"><span data-count-out>0</span> / 500 caractères</p>
+          <p class="field__err" id="f-pres-err"></p>
+        </div>
+        <div class="field">
+          <label for="f-video">Vidéo de 30 s « pourquoi toi » <span class="opt">(facultatif)</span></label>
+          <input id="f-video" name="video_url" type="url" inputmode="url" placeholder="https://…">
+          <p class="field__err" id="f-video-err"></p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend class="mono">Tes réseaux <span class="opt">(au moins un)</span></legend>
+        <div class="row">
+          <div class="field">
+            <label for="f-ig">Instagram</label>
+            <input id="f-ig" name="instagram" type="text" placeholder="@toncompte ou lien">
+          </div>
+          <div class="field">
+            <label for="f-tt">TikTok</label>
+            <input id="f-tt" name="tiktok" type="text" placeholder="@toncompte ou lien">
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="f-yt">YouTube</label>
+            <input id="f-yt" name="youtube" type="text" placeholder="Lien de ta chaîne">
+          </div>
+          <div class="field">
+            <label for="f-autre">Autre</label>
+            <input id="f-autre" name="autre_reseau" type="text" placeholder="Facebook, X, Boomplay…">
+          </div>
+        </div>
+        <p class="field__err" id="f-reseaux-err"></p>
+      </fieldset>
+
+      <fieldset class="checks-f">
+        <legend class="visually-hidden">Engagements</legend>
+        <div class="check">
+          <input id="f-pay" name="engagement" value="oui" type="checkbox" required>
+          <label for="f-pay">Je confirme pouvoir régler 150&nbsp;000&nbsp;FCFA en cash sous 72&nbsp;h si je suis sélectionné <span aria-hidden="true">*</span></label>
+        </div>
+        <p class="field__err" id="f-pay-err"></p>
+        <div class="check">
+          <input id="f-ok" name="consentement" value="oui" type="checkbox" required>
+          <label for="f-ok">J'accepte que Norta Films me contacte au sujet de ma candidature <span aria-hidden="true">*</span></label>
+        </div>
+        <p class="field__err" id="f-ok-err"></p>
+      </fieldset>
+
+      <div class="hp" aria-hidden="true"><label for="f-site">Ne pas remplir</label><input id="f-site" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+
+      <button class="btn btn--lime btn--big" type="submit" data-cursor="Go">Envoyer ma candidature <span aria-hidden="true">→</span></button>
+      <div class="upload" id="upload" hidden>
+        <div class="upload__top">
+          <span class="mono" id="upload-label">Envoi en cours</span>
+          <span class="mono upload__pct" id="upload-pct" aria-hidden="true">0 %</span>
+        </div>
+        <div class="upload__track" id="upload-bar" role="progressbar" aria-labelledby="upload-label" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+        <p class="small upload__note" id="upload-note">Garde cette page ouverte jusqu'à la fin de l'envoi.</p>
+      </div>
+    </form>
+
+    <div class="sent done" id="done" hidden tabindex="-1">
+      <p class="label mono"><i class="rec-dot"></i> Bien reçu</p>
+      <h3 class="h2 sent__title">Candidature <span class="hl">reçue.</span></h3>
+      <p class="lead" id="done-text">Norta Films a bien reçu ta candidature.</p>
+      <p class="done__id" id="done-id-box"><span class="mono">N° de candidature</span><b id="done-id"></b></p>
+      <p class="small">Garde ce numéro : il nous aide à retrouver ta candidature si tu nous écris en DM sur <a href="https://www.instagram.com/norta_films/" target="_blank" rel="noopener" data-ig>@norta_films</a>.</p>
+    </div>
+
+    <div class="sent" id="sent" hidden tabindex="-1" aria-live="polite">
+      <p class="label mono"><i class="rec-dot"></i> Presque fini</p>
+      <h3 class="h2 sent__title">Dernière étape&nbsp;: <span class="hl">envoie-la.</span></h3>
+      <p class="lead" data-sent-text>Ta candidature est prête. Choisis comment l'envoyer à Norta Films.</p>
+      <p class="sent__file" id="sent-file" hidden></p>
+      <div class="sent__actions">
+        <a class="btn btn--lime" id="send-wa" href="#" target="_blank" rel="noopener">Envoyer sur WhatsApp</a>
+        <a class="btn btn--ghost" id="send-mail" href="#">Envoyer par e-mail</a>
+        <button class="btn btn--ghost" id="send-copy" type="button">Copier le message</button>
+      </div>
+      <p class="small sent__warn" id="sent-warn" hidden></p>
+      <details class="sent__preview">
+        <summary class="mono">Voir le message</summary>
+        <pre id="sent-msg"></pre>
+      </details>
+      <div class="sent__links">
+        <button class="linkbtn" type="button" id="sent-back">← Modifier ma candidature</button>
+        <button class="linkbtn" type="button" id="sent-retry" hidden>Réessayer l'envoi en ligne</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. FAQ ============ -->
+<section class="sec sec--light faq" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq__in">
+    <div class="faq__head">
+      <p class="label mono">09 · Questions</p>
+      <h2 class="h2" id="faq-title" data-split>Ce qu'on nous <span class="hl">demande.</span></h2>
+      <p class="lead">Une autre question&nbsp;? Écris-nous en DM sur <a href="https://www.instagram.com/norta_films/" target="_blank" rel="noopener">@norta_films</a>.</p>
+    </div>
+    <div class="faq__list">
+      <details class="qa">
+        <summary>Combien ça coûte, exactement&nbsp;?</summary>
+        <div class="qa__a"><p>150&nbsp;000&nbsp;FCFA, en cash, en une seule fois, dans les 72&nbsp;h qui suivent l'annonce de ta sélection. Pas d'acompte, pas de paiement en plusieurs fois. Tu reçois un reçu signé par Norta Films.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Qu'est-ce qui est inclus dans les 150K&nbsp;?</summary>
+        <div class="qa__a"><p>La direction artistique, la réalisation, l'équipe technique et le matériel, une journée de tournage (12&nbsp;h maximum sur place), le montage, l'étalonnage, le clip en HD, un teaser vertical 9:16 et deux séries de retouches.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Qu'est-ce qui reste à ma charge&nbsp;?</summary>
+        <div class="qa__a"><p>Toute la logistique&nbsp;: le transport de l'équipe et du matériel, les repas et l'eau, les lieux et leurs autorisations, les figurants, les tenues, le maquillage et les accessoires. Si un élément manque le jour J, la journée de tournage compte quand même.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Comment se passe la sélection&nbsp;?</summary>
+        <div class="qa__a"><p>On écoute toutes les candidatures complètes. Norta Films choisit 4 artistes sur le son, l'univers et l'envie. Les artistes retenus sont prévenus par message, puis annoncés un par un, une fois leur place payée.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Comment marche le vote pour la 5e place&nbsp;?</summary>
+        <div class="qa__a"><p>Des finalistes sont présentés en story sur @norta_films, avec un sondage ouvert 48&nbsp;h. Le plus soutenu prend la 5e place. Les finalistes s'engagent avant le vote&nbsp;: contrat et paiement sous 72&nbsp;h après le résultat.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Et si je ne paie pas dans les 72&nbsp;h&nbsp;?</summary>
+        <div class="qa__a"><p>Pas payé, pas confirmé. Ta sélection est annulée et la place passe au premier artiste de la liste d'attente. Après paiement, un désistement n'est pas remboursé&nbsp;; un report demandé au moins 7 jours avant reste possible une fois.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Quand est-ce que je reçois mon clip&nbsp;?</summary>
+        <div class="qa__a"><p>Une première version du clip et du teaser arrive sous 7 jours après le tournage. Chaque série de retouches est traitée sous 3 jours. Les sorties sont calées sur un rythme d'un clip par semaine, en accord avec toi.</p></div>
+      </details>
+      <details class="qa">
+        <summary>À qui appartient le clip&nbsp;?</summary>
+        <div class="qa__a"><p>Une fois payé, tu utilises le clip et le teaser sans limite de durée sur tes propres canaux. La pub payante ou la télé demandent un accord à part. Les rushes restent chez Norta Films. Tu dois avoir les droits de ton titre, et tu crédites «&nbsp;Réalisé par Norta Films · Run &amp; Gun&nbsp;».</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 11. FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <a class="foot__logo" href="#hero" aria-label="Norta Films, retour en haut"><img src="img/norta-logo-white.svg" alt="" width="64" height="49"><span class="mono">Norta Films<br>Dakar</span></a>
+      <ul class="foot__links mono" role="list">
+        <li><a href="https://www.instagram.com/norta_films/" target="_blank" rel="noopener" data-ig>@norta_films</a></li>
+        <li><a href="#" target="_blank" rel="noopener" data-wa-link>WhatsApp</a></li>
+        <li><a href="https://tanorfall-site.vercel.app/" target="_blank" rel="noopener">Tanor Fall</a></li>
+        <li><a href="#postuler">Postuler</a></li>
+      </ul>
+    </div>
+    <p class="foot__sign" data-split>Une journée. Un clip. <span class="hl">Pas&nbsp;d'excuses.</span></p>
+    <div class="foot__rg" aria-hidden="true"><span class="rg rg--static">RUN<span class="rg__dot"></span>GUN</span></div>
+    <div class="foot__bottom mono">
+      <span>Run &amp; Gun · Saison 01</span>
+      <span>© <span data-year>2026</span> Norta Films</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Modale vidéo -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__box">
+    <div class="modal__bar">
+      <p class="mono" id="modal-title">Vidéo</p>
+      <button class="modal__close" type="button" data-close aria-label="Fermer la vidéo">✕</button>
+    </div>
+    <div class="modal__frame" id="modal-frame"></div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="js/form.js" defer></script>
+<script src="js/main.js" defer></script>
+
+<!-- Navigation basse (mobile et tablette uniquement) -->
+<nav class="bnav" aria-label="Navigation">
+  <a href="#histoire" data-bnav="histoire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Zm9-1.5h5.5c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5H13V4Z"/></svg><span>Histoire</span></a>
+  <a href="#clips" data-bnav="clips"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9Z" class="f"/></svg><span>Clips</span></a>
+  <a href="#postuler" class="bnav__cta" data-bnav="postuler"><span class="bnav__rec" aria-hidden="true"></span><span>Postuler</span></a>
+  <a href="#deal" data-bnav="deal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8L3 12Z"/><circle cx="7.5" cy="8.5" r="1.5" class="f"/></svg><span>Le deal</span></a>
+  <a href="#faq" data-bnav="faq"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.7M12 17h.01"/></svg><span>FAQ</span></a>
+</nav>
+<script>
+  // Navigation basse : surligne la section visible.
+  (function () {
+    var links = [].slice.call(document.querySelectorAll('.bnav a'));
+    if (!('IntersectionObserver' in window) || !links.length) return;
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { if (a.dataset.bnav === e.target.id) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    links.forEach(function (a) { var t = document.getElementById(a.dataset.bnav); if (t) io.observe(t); });
+  })();
+</script>
+</body>
+</html>
