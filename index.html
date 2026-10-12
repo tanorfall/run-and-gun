@@ -147,7 +147,7 @@
     <h2 class="h2" id="cred-title" data-split>Norta Films sait faire <span class="hl">beaucoup avec peu.</span></h2>
 
     <ul class="stats" role="list">
-      <li class="stat reveal"><span class="stat__n" data-count="8">8</span><span class="stat__l mono">Clips à regarder</span><span class="stat__d">Des clips musicaux, à voir juste en dessous</span></li>
+      <li class="stat reveal"><span class="stat__n" data-count="7">7</span><span class="stat__l mono">Clips à regarder</span><span class="stat__d">Des clips musicaux, à voir juste en dessous</span></li>
       <li class="stat reveal"><span class="stat__n" data-count="3">3</span><span class="stat__l mono">Langues de tournage</span><span class="stat__d">Français, wolof, anglais</span></li>
       <li class="stat reveal"><span class="stat__n" data-count="7">7</span><span class="stat__l mono">Artistes à l'affiche</span><span class="stat__d">De Keulthieu à Mnsieur Kash</span></li>
       <li class="stat reveal"><span class="stat__n"><span data-count="24">24</span><small>h</small></span><span class="stat__l mono">Pour te répondre</span><span class="stat__d">Basé à Dakar, sur le terrain partout</span></li>
@@ -173,75 +173,123 @@
     <div class="sec__head">
       <p class="label mono">03 · Déjà tourné</p>
       <h2 class="h2" id="clips-title" data-split>Les preuves, <span class="hl">en images.</span></h2>
-      <p class="lead">Des clips musicaux, rien que ça. Clique pour regarder.</p>
+      <p class="lead">Des clips musicaux, en lecture muette. Clique sur une carte pour la regarder avec le son.</p>
     </div>
 
     <ul class="grid-clips" role="list">
-      <li class="clip clip--xl reveal">
-        <button class="clip__btn" type="button" data-video="youtube:J9fLXdnk2As" data-title="Keulthieu The Name · L.B.L.D" data-cursor="Lire">
-          <span class="clip__media"><img src="img/clip-keulthieu-lbld.jpg" alt="" loading="lazy" width="1280" height="720"></span>
-          <span class="clip__play" aria-hidden="true"></span>
-          <span class="clip__info"><span class="mono">Clip · Réalisation, D.A.</span><span class="clip__t">Keulthieu «&nbsp;L.B.L.D&nbsp;»</span></span>
-          <span class="visually-hidden">Lire la vidéo</span>
-        </button>
-      </li>
-      <li class="clip reveal">
-        <button class="clip__btn" type="button" data-video="youtube:R3tNuva0LcU" data-title="Mika Tawou · Demb, Boomrang #2" data-cursor="Lire">
-          <span class="clip__media"><img src="img/clip-mika-boomrang-2.jpg" alt="" loading="lazy" width="1280" height="720"></span>
-          <span class="clip__play" aria-hidden="true"></span>
-          <span class="clip__info"><span class="mono">Clip · Réalisation, cadrage, post-prod</span><span class="clip__t">Mika Tawou «&nbsp;Demb — Boomrang #2&nbsp;»</span></span>
-          <span class="visually-hidden">Lire la vidéo</span>
-        </button>
-      </li>
-      <li class="clip reveal">
-        <button class="clip__btn" type="button" data-video="youtube:H57FDwMDe1I" data-title="Mika Tawou · Demb, Boomrang #1" data-cursor="Lire">
-          <span class="clip__media"><img src="img/clip-mika-boomrang-1.jpg" alt="" loading="lazy" width="1280" height="720"></span>
-          <span class="clip__play" aria-hidden="true"></span>
-          <span class="clip__info"><span class="mono">Clip · Réalisation, cadrage, post-prod</span><span class="clip__t">Mika Tawou «&nbsp;Demb — Boomrang #1&nbsp;»</span></span>
-          <span class="visually-hidden">Lire la vidéo</span>
-        </button>
-      </li>
-      <li class="clip reveal">
+      <li class="clip clip--lead b-ol reveal">
+        <span class="clip__media">
+          <img class="clip__poster" src="img/poster-one-lyrical.jpg" alt="" loading="lazy" width="1280" height="720">
+          <video class="clip__loop" data-src="video/one-lyrical-loop.mp4" muted autoplay loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>
+        </span>
         <button class="clip__btn" type="button" data-video="drive:1CfD2eOAQFASo9y4TyUiOnjWZLn-BQcxS" data-title="One Lyrical · Promo" data-cursor="Lire">
-          <span class="clip__media"><img src="img/still-clip-one-lyrical-car-rapide-01.jpg" alt="" loading="lazy" width="1600" height="900"></span>
           <span class="clip__play" aria-hidden="true"></span>
           <span class="clip__info"><span class="mono">Clip · Production, réalisation</span><span class="clip__t">One Lyrical «&nbsp;Promo&nbsp;»</span></span>
-          <span class="visually-hidden">Lire la vidéo</span>
+          <span class="clip__over" aria-hidden="true">
+            <span class="mono">Clip · Production, réalisation</span>
+            <span class="clip__over-t">One Lyrical «&nbsp;Promo&nbsp;»</span>
+            <span class="clip__voir">Voir avec le son</span>
+          </span>
+          <span class="visually-hidden">Lire la vidéo avec le son</span>
         </button>
       </li>
-      <li class="clip reveal">
+      <li class="clip clip--tall b-keul reveal">
+        <span class="clip__media">
+          <img class="clip__poster" src="img/poster-keulthieu-lbld.jpg" alt="" loading="lazy" width="1280" height="720">
+          <video class="clip__loop" data-src="video/keulthieu-lbld-loop.mp4" muted autoplay loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>
+        </span>
+        <button class="clip__btn" type="button" data-video="youtube:J9fLXdnk2As" data-title="Keulthieu The Name · L.B.L.D" data-cursor="Lire">
+          <span class="clip__play" aria-hidden="true"></span>
+          <span class="clip__info"><span class="mono">Clip · Réalisation, D.A. · 2026</span><span class="clip__t">Keulthieu «&nbsp;L.B.L.D&nbsp;»</span></span>
+          <span class="clip__over" aria-hidden="true">
+            <span class="mono">Clip · Réalisation, D.A. · 2026</span>
+            <span class="clip__over-t">Keulthieu «&nbsp;L.B.L.D&nbsp;»</span>
+            <span class="clip__voir">Voir avec le son</span>
+          </span>
+          <span class="visually-hidden">Lire la vidéo avec le son</span>
+        </button>
+      </li>
+      <li class="clip clip--tall b-calail reveal" data-yt="lzudglAKMF0">
+        <span class="clip__media">
+          <img class="clip__poster" src="img/clip-calail-christ-plata.jpg" alt="" loading="lazy" width="1280" height="720">
+          <span class="clip__yt" aria-hidden="true"></span>
+        </span>
         <button class="clip__btn" type="button" data-video="youtube:lzudglAKMF0" data-title="Calail Christ · PLATA" data-cursor="Lire">
-          <span class="clip__media"><img src="img/clip-calail-christ-plata.jpg" alt="" loading="lazy" width="1280" height="720"></span>
           <span class="clip__play" aria-hidden="true"></span>
-          <span class="clip__info"><span class="mono">Clip officiel</span><span class="clip__t">Calail Christ «&nbsp;PLATA&nbsp;»</span></span>
-          <span class="visually-hidden">Lire la vidéo</span>
+          <span class="clip__info"><span class="mono">Clip officiel · 2026</span><span class="clip__t">Calail Christ «&nbsp;PLATA&nbsp;»</span></span>
+          <span class="clip__over" aria-hidden="true">
+            <span class="mono">Clip officiel · 2026</span>
+            <span class="clip__over-t">Calail Christ «&nbsp;PLATA&nbsp;»</span>
+            <span class="clip__voir">Voir avec le son</span>
+          </span>
+          <span class="visually-hidden">Lire la vidéo avec le son</span>
         </button>
       </li>
-      <li class="clip reveal">
-        <button class="clip__btn" type="button" data-video="youtube:W_bhlJql-RA" data-title="Xhalil Xms · I Know" data-cursor="Lire">
-          <span class="clip__media"><img src="img/clip-xhalil-xms-i-know.jpg" alt="" loading="lazy" width="1280" height="720"></span>
+      <li class="clip  b-boom reveal" data-yt="H57FDwMDe1I">
+        <span class="clip__media">
+          <img class="clip__poster" src="img/clip-mika-boomrang-1.jpg" alt="" loading="lazy" width="1280" height="720">
+          <span class="clip__yt" aria-hidden="true"></span>
+        </span>
+        <button class="clip__btn" type="button" data-video="youtube:H57FDwMDe1I" data-title="Mika Tawou · Demb, Boomrang #1" data-cursor="Lire">
           <span class="clip__play" aria-hidden="true"></span>
-          <span class="clip__info"><span class="mono">Clip officiel</span><span class="clip__t">Xhalil Xms «&nbsp;I Know&nbsp;»</span></span>
-          <span class="visually-hidden">Lire la vidéo</span>
+          <span class="clip__info"><span class="mono">Clip · Réalisation, cadrage, post-prod · 2026</span><span class="clip__t">Mika Tawou «&nbsp;Demb — Boomrang #1&nbsp;»</span></span>
+          <span class="clip__over" aria-hidden="true">
+            <span class="mono">Clip · Réalisation, cadrage, post-prod · 2026</span>
+            <span class="clip__over-t">Mika Tawou «&nbsp;Demb — Boomrang #1&nbsp;»</span>
+            <span class="clip__voir">Voir avec le son</span>
+          </span>
+          <span class="visually-hidden">Lire la vidéo avec le son</span>
         </button>
       </li>
-      <li class="clip reveal">
+      <li class="clip  b-dogo reveal" data-yt="0DbgWczSqLM">
+        <span class="clip__media">
+          <img class="clip__poster" src="img/clip-le-dogo-karako.jpg" alt="" loading="lazy" width="1280" height="720">
+          <span class="clip__yt" aria-hidden="true"></span>
+        </span>
         <button class="clip__btn" type="button" data-video="youtube:0DbgWczSqLM" data-title="Le Dôgô · KARAKO ft. Starkingboycrak" data-cursor="Lire">
-          <span class="clip__media"><img src="img/clip-le-dogo-karako.jpg" alt="" loading="lazy" width="1280" height="720"></span>
           <span class="clip__play" aria-hidden="true"></span>
-          <span class="clip__info"><span class="mono">Clip · feat. Starkingboycrak</span><span class="clip__t">Le Dôgô «&nbsp;KARAKO&nbsp;»</span></span>
-          <span class="visually-hidden">Lire la vidéo</span>
+          <span class="clip__info"><span class="mono">Clip · feat. Starkingboycrak · 2026</span><span class="clip__t">Le Dôgô «&nbsp;KARAKO&nbsp;»</span></span>
+          <span class="clip__over" aria-hidden="true">
+            <span class="mono">Clip · feat. Starkingboycrak · 2026</span>
+            <span class="clip__over-t">Le Dôgô «&nbsp;KARAKO&nbsp;»</span>
+            <span class="clip__voir">Voir avec le son</span>
+          </span>
+          <span class="visually-hidden">Lire la vidéo avec le son</span>
         </button>
       </li>
-      <li class="clip reveal">
+      <li class="clip  b-xhalil reveal" data-yt="W_bhlJql-RA">
+        <span class="clip__media">
+          <img class="clip__poster" src="img/clip-xhalil-xms-i-know.jpg" alt="" loading="lazy" width="1280" height="720">
+          <span class="clip__yt" aria-hidden="true"></span>
+        </span>
+        <button class="clip__btn" type="button" data-video="youtube:W_bhlJql-RA" data-title="Xhalil Xms · I Know" data-cursor="Lire">
+          <span class="clip__play" aria-hidden="true"></span>
+          <span class="clip__info"><span class="mono">Clip officiel · 2025</span><span class="clip__t">Xhalil Xms «&nbsp;I Know&nbsp;»</span></span>
+          <span class="clip__over" aria-hidden="true">
+            <span class="mono">Clip officiel · 2025</span>
+            <span class="clip__over-t">Xhalil Xms «&nbsp;I Know&nbsp;»</span>
+            <span class="clip__voir">Voir avec le son</span>
+          </span>
+          <span class="visually-hidden">Lire la vidéo avec le son</span>
+        </button>
+      </li>
+      <li class="clip  b-kash reveal" data-yt="GWJNAzalFt8">
+        <span class="clip__media">
+          <img class="clip__poster" src="img/clip-mnsieur-kash-developpe.jpg" alt="" loading="lazy" width="1280" height="720">
+          <span class="clip__yt" aria-hidden="true"></span>
+        </span>
         <button class="clip__btn" type="button" data-video="youtube:GWJNAzalFt8" data-title="Mnsieur Kash · Développe" data-cursor="Lire">
-          <span class="clip__media"><img src="img/clip-mnsieur-kash-developpe.jpg" alt="" loading="lazy" width="1280" height="720"></span>
           <span class="clip__play" aria-hidden="true"></span>
-          <span class="clip__info"><span class="mono">Clip officiel</span><span class="clip__t">Mnsieur Kash «&nbsp;Développe&nbsp;»</span></span>
-          <span class="visually-hidden">Lire la vidéo</span>
+          <span class="clip__info"><span class="mono">Clip officiel · 2025</span><span class="clip__t">Mnsieur Kash «&nbsp;Développe&nbsp;»</span></span>
+          <span class="clip__over" aria-hidden="true">
+            <span class="mono">Clip officiel · 2025</span>
+            <span class="clip__over-t">Mnsieur Kash «&nbsp;Développe&nbsp;»</span>
+            <span class="clip__voir">Voir avec le son</span>
+          </span>
+          <span class="visually-hidden">Lire la vidéo avec le son</span>
         </button>
       </li>
-      <li class="clip clip--cta reveal">
+      <li class="clip clip--cta b-cta reveal">
         <a class="clip__more" href="https://tanorfall-site.vercel.app/" target="_blank" rel="noopener" data-cursor="Voir">
           <span class="mono">Portfolio complet</span>
           <span class="clip__more-t">Le portfolio de Tanor Fall <span aria-hidden="true">↗</span></span>

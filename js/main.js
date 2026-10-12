@@ -66,6 +66,107 @@
     box._set = set;
   });
 
+  // ---------- bento des clips : boucles muettes, lues seulement quand la carte est à l'écran ----------
+  // Cartes avec un fichier mp4 local (.clip__loop) ou une iframe YouTube chargée à la demande (.clip__yt).
+  // Toujours muet. Le clic ouvre la modale vidéo (avec le son). Affiches fixes si mouvement réduit,
+  // données économisées ou connexion très lente.
+  var bento = (function () {
+    var noop = { hold: function () {}, release: function () {} };
+    var grid = $('.grid-clips');
+    if (!grid) return noop;
+    var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection || {};
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches || conn.saveData === true ||
+      /(^|-)2g$/.test(conn.effectiveType || '') || !('IntersectionObserver' in window);
+    if (still) { grid.classList.add('clips-static'); return noop; }
+
+    var YT = 'https://www.youtube-nocookie.com';
+    var small = window.matchMedia('(max-width: 1023px), (pointer: coarse)');
+    var held = false, raf = 0;
+    var items = $$('.clip', grid).filter(function (c) { return c.querySelector('.clip__loop') || c.getAttribute('data-yt'); }).map(function (c) {
+      return { card: c, video: c.querySelector('.clip__loop'), yt: c.getAttribute('data-yt'), box: c.querySelector('.clip__yt'),
+               ifr: null, mounted: false, vis: false, want: false, ready: false, d: 0 };
+    });
+    if (!items.length) return noop;
+
+    function post(it, func) {
+      if (!it.ifr || !it.ifr.contentWindow) return;
+      try { it.ifr.contentWindow.postMessage(JSON.stringify({ event: 'command', func: func, args: '' }), YT); } catch (e) {}
+    }
+    function mount(it) {
+      if (it.mounted) return;
+      it.mounted = true;
+      if (it.video) {
+        it.video.muted = true; it.video.defaultMuted = true; it.video.loop = true;
+        it.video.addEventListener('playing', function () { it.card.classList.add('is-playing'); });
+        it.video.src = it.video.getAttribute('data-src');
+      } else if (it.yt && it.box) {
+        var f = document.createElement('iframe');
+        var q = 'autoplay=1&mute=1&controls=0&loop=1&playlist=' + it.yt + '&playsinline=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1';
+        if (/^https?:$/.test(location.protocol)) q += '&origin=' + encodeURIComponent(location.origin);
+        f.src = YT + '/embed/' + it.yt + '?' + q;
+        f.title = '';
+        f.tabIndex = -1;
+        f.setAttribute('aria-hidden', 'true');
+        f.allow = 'autoplay; encrypted-media';
+        f.referrerPolicy = 'strict-origin-when-cross-origin';
+        f.addEventListener('load', function () {
+          try { f.contentWindow.postMessage(JSON.stringify({ event: 'listening', id: it.yt, channel: 'widget' }), YT); } catch (e) {}
+          post(it, 'mute');
+        });
+        it.ifr = f;
+        it.box.appendChild(f);
+      }
+    }
+    function apply() {
+      raf = 0;
+      var mid = window.innerHeight / 2, max = small.matches ? 3 : 4;
+      var vis = items.filter(function (it) { return it.vis; });
+      vis.forEach(function (it) { var r = it.card.getBoundingClientRect(); it.d = Math.abs((r.top + r.bottom) / 2 - mid); });
+      vis.sort(function (a, b) { return a.d - b.d; });
+      items.forEach(function (it) { it.want = false; });
+      if (!held && !document.hidden) vis.slice(0, max).forEach(function (it) { it.want = true; });
+      items.forEach(function (it) {
+        if (it.want) {
+          mount(it);
+          if (it.video) { var p = it.video.play(); if (p && p.catch) p.catch(function () {}); }
+          else if (it.ready) post(it, 'playVideo');
+        } else if (it.mounted) {
+          if (it.video) it.video.pause();
+          else post(it, 'pauseVideo');
+        }
+      });
+    }
+    function schedule() { if (!raf) raf = requestAnimationFrame(apply); }
+
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].card === e.target) { items[i].vis = e.isIntersecting && e.intersectionRatio >= 0.12; break; }
+        }
+      });
+      schedule();
+    }, { rootMargin: '60px 0px', threshold: [0, 0.12, 0.5] });
+    items.forEach(function (it) { io.observe(it.card); });
+    window.addEventListener('scroll', schedule, { passive: true });
+    document.addEventListener('visibilitychange', schedule);
+
+    // retours de l'iframe YouTube : l'affiche reste visible jusqu'au début réel de la lecture
+    window.addEventListener('message', function (e) {
+      if (e.origin !== YT || typeof e.data !== 'string') return;
+      var it = null;
+      for (var i = 0; i < items.length; i++) { if (items[i].ifr && items[i].ifr.contentWindow === e.source) { it = items[i]; break; } }
+      if (!it) return;
+      var d; try { d = JSON.parse(e.data); } catch (err) { return; }
+      var st = d.event === 'onStateChange' ? d.info : (d.info && typeof d.info === 'object' ? d.info.playerState : undefined);
+      if (typeof st !== 'number') return;
+      it.ready = true;
+      if (st === 1) { it.card.classList.add('is-playing'); if (!it.want) post(it, 'pauseVideo'); }
+      else if ((st === 0 || st === 2 || st === 5) && it.want && !held) post(it, 'playVideo');
+    });
+
+    return { hold: function () { held = true; schedule(); }, release: function () { held = false; schedule(); } };
+  })();
+
   // ---------- modale vidéo ----------
   var modal = $('#modal'), frame = $('#modal-frame'), lastFocus = null;
   function openVideo(src, title) {
@@ -86,6 +187,7 @@
     requestAnimationFrame(function () { modal.classList.add('is-open'); });
     document.body.style.overflow = 'hidden';
     if (window.__lenis) window.__lenis.stop();
+    bento.hold();
     $('.modal__close', modal).focus();
   }
   function closeVideo() {
@@ -95,6 +197,7 @@
     frame.innerHTML = '';
     document.body.style.overflow = '';
     if (window.__lenis) window.__lenis.start();
+    bento.release();
     if (lastFocus) lastFocus.focus({ preventScroll: true });
   }
   $$('[data-video]').forEach(function (b) {

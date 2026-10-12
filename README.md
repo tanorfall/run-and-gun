@@ -11,6 +11,7 @@ Le site de la campagne Run & Gun, saison 01. C'est une seule page statique. Les 
 ├── js/config.js    LES RÉGLAGES À REMPLIR (numéro WhatsApp, e-mail…)
 ├── js/form.js      le formulaire de candidature
 ├── js/main.js      les animations et la vidéo en plein écran
+├── video/          les boucles muettes des cartes clips (mp4)
 ├── img/            les photos (compressées), les miniatures des clips, le logo, l'icône, l'image de partage
 └── .nojekyll       dit à GitHub Pages de servir les fichiers tels quels
 ```
@@ -117,7 +118,10 @@ L'image qui s'affiche quand on partage le lien sur WhatsApp, Instagram ou Facebo
 - Les textes sont dans `index.html`, section par section (chaque section commence par un commentaire `<!-- ============ ... -->`).
 - **Le prix** (150 000 FCFA, « 150K ») apparaît dans `index.html` (titre et carte du deal, encadré « Pas payé, pas confirmé », étape 3, mini-liste et case du formulaire, FAQ) et dans `js/form.js` (message WhatsApp / e-mail). Pour le changer, cherche « 150 » dans ces deux fichiers.
 - **Les clips** : la section ne présente que des clips musicaux. Chaque carte a un attribut `data-video="youtube:ID"` ; la vidéo s'ouvre dans la fenêtre en plein écran (`youtube-nocookie.com`). Pour ajouter un clip, copie une carte et change l'ID YouTube (la partie après `v=` ou `youtu.be/`), le titre et l'image. La miniature est **stockée dans `img/`** pour ne pas dépendre d'un site tiers : télécharge `https://i.ytimg.com/vi/ID/maxresdefault.jpg` (repli : `hqdefault.jpg`), enregistre-la en JPEG dans `img/` (par exemple `img/clip-artiste-titre.jpg`) et mets ce chemin dans la carte. Pense à mettre à jour le compteur « Clips à regarder » et la liste des artistes de la bande défilante (section « Qui tourne »). Le clip One Lyrical est lu depuis Google Drive (`data-video="drive:ID"`) : le fichier doit rester partagé « Tous les utilisateurs disposant du lien ».
-- Clips affichés : Keulthieu « L.B.L.D », Mika Tawou « Demb, Boomrang #2 » et « #1 », One Lyrical « Promo », Calail Christ « PLATA », Xhalil Xms « I Know », Le Dôgô « KARAKO » (feat. Starkingboycrak), Mnsieur Kash « Développe ».
+- Clips affichés (bento, 7 cartes) : One Lyrical « Promo » (grande carte), Keulthieu « L.B.L.D », Calail Christ « PLATA », Mika Tawou « Demb, Boomrang #1 », Le Dôgô « KARAKO » (feat. Starkingboycrak), Xhalil Xms « I Know », Mnsieur Kash « Développe ».
+- **Lecture automatique, muette, en boucle** : chaque carte joue sans son quand elle est à l'écran ; le clic ouvre la fenêtre vidéo avec le son. Au survol (souris), la carte affiche titre, artiste, année et « Voir avec le son ». Rien ne joue si le visiteur a demandé « réduire les animations », a activé l'économiseur de données ou a une connexion très lente : les affiches restent fixes. Au plus 3 lectures en même temps sur mobile (4 sur ordinateur). Le code est dans `js/main.js` (section « bento des clips ») et `css/style.css` (section « 4. CLIPS »).
+- **Remplacer une boucle** (One Lyrical et Keulthieu, fichiers dans `video/`) : prépare un MP4 H.264 **muet**, 6 à 10 secondes, 1280×720, **2,5 Mo maximum**, avec l'option « optimiser pour le web » (le bloc `moov` en tête de fichier). Remplace le fichier du même nom dans `video/`, puis remplace l'affiche `img/poster-one-lyrical.jpg` ou `img/poster-keulthieu-lbld.jpg` par la première image de la nouvelle boucle (JPEG, 1280 px). Poids total des vidéos actuelles : environ 4,6 Mo.
+- **Cartes YouTube** (Calail Christ, Boomrang #1, Le Dôgô, Xhalil Xms, Mnsieur Kash) : pas de fichier à fournir. La carte charge une iframe `youtube-nocookie.com` muette, seulement quand elle approche de l'écran, avec la miniature locale en affiche. L'ID est dans l'attribut `data-yt` de la carte (et dans `data-video` pour la fenêtre avec le son).
 - Les photos : ajoute-les dans `img/` après les avoir réduites, par exemple dans le Terminal :
   `sips -Z 1600 -s format jpeg -s formatOptions 70 photo.jpg --out img/photo.jpg`
 
@@ -130,7 +134,8 @@ L'image qui s'affiche quand on partage le lien sur WhatsApp, Instagram ou Facebo
 ## Mises à jour du 12 octobre 2026 (version en ligne)
 - **Prix** : le tarif passe à **150 000 FCFA (150K)** partout (deal, étapes, formulaire, FAQ, message WhatsApp / e-mail). L'image de partage ne contient pas de prix, elle est inchangée.
 - **Clips** : uniquement des clips musicaux. Les publicités et les documentaires sont retirés, et 4 clips sont ajoutés (Calail Christ, Xhalil Xms, Le Dôgô, Mnsieur Kash). Les miniatures sont stockées dans `img/`.
-- **Bande « Qui tourne »** : compteurs et noms mis en cohérence (8 clips, 7 artistes à l'affiche). Le chiffre « langues de tournage » et le délai de réponse sont inchangés.
+- **Bento de boucles muettes** : « Boomrang #2 » retiré de la section clips (il reste dans la comparaison avant/après), One Lyrical en grande carte, lecture automatique muette, survol avec « Voir avec le son ».
+- **Bande « Qui tourne »** : compteurs et noms mis en cohérence (7 clips, 7 artistes à l'affiche). Le chiffre « langues de tournage » et le délai de réponse sont inchangés.
 - **Section Tanor Fall** (portrait, citation, bio) : supprimée, avec son image et son style. Le crédit « Réal. Tanor Fall » du clap et le lien du pied de page restent.
 - **Galerie « Coulisses »** : les photos de pause, de rires, de maquillage et de portrait sont remplacées par des images d'action (rig en gros plan, cadreur sous la lumière, plan bas, stills de clips).
 - **Mise en ligne** : GitHub Pages, adresse `https://tanorfall.github.io/run-and-gun/`, fichier `.nojekyll`, adresses absolues pour `og:image` / `twitter:image`.
