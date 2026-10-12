@@ -5,10 +5,10 @@
 
 // Numéro WhatsApp de Norta Films, au format international, chiffres seulement.
 // Exemple : '221771234567' (221 = Sénégal, puis le numéro sans le 0 ni les espaces).
-const NORTA_WHATSAPP = '221XXXXXXXXX';
+const NORTA_WHATSAPP = '221779127614';
 
 // Adresse e-mail qui reçoit les candidatures envoyées par e-mail.
-const NORTA_EMAIL = 'contact@exemple.com';
+const NORTA_EMAIL = 'tanorfall772@gmail.com';
 
 // Adresse qui enregistre les candidatures dans l'app de pilotage de l'équipe (09-app-pilotage).
 // Le site y envoie chaque candidature (champs + fichier audio de 10 Mo max) en multipart/form-data.
