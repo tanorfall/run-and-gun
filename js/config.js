@@ -20,7 +20,7 @@ const NORTA_EMAIL = 'tanorfall772@gmail.com';
 //   et propose directement WhatsApp / e-mail.)
 // - Laisse vide ('') pour ne rien enregistrer : le site propose alors WhatsApp et e-mail.
 // Si l'app ne répond pas, le site retombe automatiquement sur WhatsApp / e-mail / copier le message.
-const FORM_ENDPOINT = 'http://localhost:3100/api/candidature';
+const FORM_ENDPOINT = 'https://run-and-gun-qg.vercel.app/api/candidature';
 
 // Compte Instagram affiché sur le site.
 const NORTA_INSTAGRAM = 'norta_films';
