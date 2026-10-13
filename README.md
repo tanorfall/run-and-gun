@@ -6,13 +6,17 @@ Le site de la campagne Run & Gun, saison 01. C'est une seule page statique. Les 
 
 ```
 06-site-web/
-├── index.html      la page (toutes les sections et le formulaire)
+├── index.html      la page (sections, formulaire, balises de référencement, données structurées JSON-LD)
+├── 404.html        page d'erreur utile (noindex)
+├── sitemap.xml     plan du site pour Google et Bing
+├── robots.txt      règles d'exploration (+ adresse du sitemap)
+├── manifest.webmanifest   nom et icônes du site
 ├── css/style.css   le style
 ├── js/config.js    LES RÉGLAGES À REMPLIR (numéro WhatsApp, e-mail…)
 ├── js/form.js      le formulaire de candidature
 ├── js/main.js      les animations et la vidéo en plein écran
 ├── video/          les boucles muettes des cartes clips (mp4)
-├── img/            les photos (compressées), les miniatures des clips, le logo, l'icône, l'image de partage
+├── img/            les photos (en .webp, avec une version 800 px), les .jpg d'origine (miniatures de données structurées), le logo, l'icône, l'image de partage
 └── .nojekyll       dit à GitHub Pages de servir les fichiers tels quels
 ```
 
@@ -158,3 +162,82 @@ La fonction en ligne du QG limite une requête à 4,5 Mo. Pour garder les 10 Mo 
 3. il envoie le formulaire **sans le fichier**, avec la clé du fichier (`son_cle`, `son_ticket`, `son_nom`). Le QG relit le fichier et vérifie que c'est bien de l'audio.
 
 En dessous de 4 Mo, rien ne change (le fichier part avec le formulaire). Si le QG répond « dépôt direct indisponible » (501, par exemple avec le QG local), le site retombe sur l'envoi classique.
+
+## 5. Référencement (SEO)
+
+### Ce qui est en place
+
+- `<title>` (56 caractères) et description (140 caractères) avec « clip », « Dakar », « Norta Films », « Run & Gun » ; `lang="fr"`, `canonical` absolu, `hreflang` `fr`, `fr-SN` et `x-default`, `robots` index/follow, `theme-color`.
+- Open Graph et cartes Twitter complets (`og:url`, image absolue 1200×630 avec texte alternatif, `og:locale fr_FR`).
+- **Données structurées JSON-LD** (un seul bloc `@graph` dans `index.html`, vérifié : JSON valide, types et propriétés présents dans schema.org) : `Organization` Norta Films (avec `sameAs` limité à `https://www.instagram.com/norta_films/`), `WebSite`, `WebPage`, `Service` + `Offer` « Réalisation d'un clip en une journée » (150000 XOF, zone Dakar), `FAQPage` (les 10 questions réelles de la page), 7 `VideoObject` (titre, description, miniature, `embedUrl`).
+  - Les `VideoObject` n'ont **pas** de `uploadDate` : on ne connaît pas les dates exactes de mise en ligne. Google n'affichera donc pas de résultat vidéo enrichi tant que la date manque. Pour l'ajouter : dans le bloc JSON-LD, ajouter `"uploadDate": "AAAA-MM-JJ"` à chaque clip.
+  - Google n'affiche plus les résultats enrichis FAQ que pour de rares sites officiels : le balisage reste valide et utile aux autres moteurs et aux assistants.
+- `sitemap.xml`, `robots.txt`, `404.html` (noindex, lien de retour), `manifest.webmanifest`.
+- Un seul `<h1>` (texte lisible par les moteurs : « Run & Gun, saison 01 : un clip musical tourné en une journée à Dakar, par Norta Films », le logo animé reste visuel), h2 par section, h3 pour les sous-parties, textes alternatifs descriptifs en français sur les images utiles, `loading="lazy"` et `width/height` sur toutes les images hors hero, liens externes en `rel="noopener"`.
+- Performance : images converties en WebP (400 Ko de photos en moins par page vue, versions 800 px pour mobile via `srcset`), image du hero préchargée, police principale préchargée, feuille de polices non bloquante.
+- Place réservée à la validation des moteurs : balises `google-site-verification` et `msvalidate.01` en commentaire dans le `<head>` de `index.html`, avec `CODE_A_REMPLIR`.
+
+### Mesure Lighthouse (mobile, v12)
+
+| | Performance | Accessibilité | Bonnes pratiques | SEO |
+|---|---|---|---|---|
+| Avant (URL publique, 13/10/2026) | 70 | 93 | 100 | 100 |
+| Après (serveur local, 13/10/2026) | 84 | 97 | 100 | 100 |
+| Après (URL publique) | PUBLIC_PERF | PUBLIC_A11Y | PUBLIC_BP | PUBLIC_SEO |
+
+Ce qui reste volontairement : le clap d'ouverture (3,2 s) retarde le « plus grand affichage » (LCP) ; les mots de l'histoire qui s'éclaircissent au défilement sont signalés « contraste » par Lighthouse dans leur état de départ ; GitHub Pages impose 10 minutes de cache et sa propre compression. Le score local n'applique ni cache ni compression : la mesure publique fait foi.
+
+Relancer la mesure : `cd 05-sources/tools && npx --yes lighthouse@12 https://tanorfall.github.io/run-and-gun/ --chrome-path="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --only-categories=seo,performance,accessibility,best-practices --form-factor=mobile --output=html --output-path=rapport.html --chrome-flags="--headless=new"`
+
+### Limite à connaître : `robots.txt` sur GitHub Pages
+
+Le site est sous `https://tanorfall.github.io/run-and-gun/`. Les moteurs ne lisent `robots.txt` qu'à la **racine du domaine** (`tanorfall.github.io/robots.txt`), pas dans un sous-dossier. Le fichier est donc sans effet tant que le site n'est pas sur un domaine à lui. Ce n'est pas bloquant : tout est indexable par défaut, et **le sitemap se déclare directement dans Google Search Console et Bing Webmaster Tools** (voir ci-dessous). Avec un nom de domaine propre un jour (par exemple `rungun.sn`), `robots.txt` et `sitemap.xml` fonctionneront tels quels ; il faudra alors changer les adresses dans `index.html`, `sitemap.xml`, `robots.txt` et `404.html`.
+
+### Ajouter le site à Google Search Console
+
+1. Va sur https://search.google.com/search-console avec le compte Google de la campagne.
+2. « Ajouter une propriété » > **Préfixe d'URL** > `https://tanorfall.github.io/run-and-gun/`.
+3. Choisis la validation par **balise HTML** : Google te donne une ligne `<meta name="google-site-verification" content="XXXX">`.
+4. Dans `index.html`, dans le bloc commenté près du début du `<head>`, remplace `CODE_A_REMPLIR` de la ligne `google-site-verification` par le code, et enlève les marques de commentaire `<!--` et `-->` autour de **cette ligne seulement** (garde la balise `msvalidate.01` commentée tant que tu n'as pas son code). Publie (`git add -A`, `git commit`, `git push`), attends 1 minute, puis clique sur « Valider » dans Search Console.
+5. Menu « Sitemaps » : saisis `sitemap.xml` et envoie. Menu « Inspection de l'URL » : colle l'adresse du site, puis « Demander une indexation ».
+
+### Bing Webmaster Tools
+
+1. https://www.bing.com/webmasters : connecte-toi, « Ajouter un site » et colle l'adresse du site (ou importe depuis Google Search Console, plus rapide).
+2. Si tu choisis la balise : remplace `CODE_A_REMPLIR` sur la ligne `msvalidate.01` et dé-commente-la comme ci-dessus.
+3. Menu « Sitemaps » : envoie `https://tanorfall.github.io/run-and-gun/sitemap.xml`.
+
+### 10 actions hors site à faire
+
+1. Mettre l'adresse du site dans la **bio et le champ « site web »** de chaque page sociale (Instagram, TikTok, YouTube, Facebook, X, LinkedIn, chaîne WhatsApp) : voir `04-visuels/pages-run-and-gun/CREER-LES-PAGES.md`.
+2. Mettre le site dans la **description de chaque clip YouTube** (première ligne) et dans l'onglet « À propos » de la chaîne.
+3. Ajouter le lien sur le **portfolio de Tanor Fall** (https://tanorfall-site.vercel.app/) et sur Behance si un profil existe.
+4. Créer une fiche **Google Business Profile** (Google Maps) pour Norta Films seulement s'il y a une adresse ou une zone de service à afficher : c'est le meilleur levier pour « clip Dakar » ; la validation demande un courrier ou un appel, prévoir quelques jours.
+5. Faire relayer le lien par les **artistes** déjà tournés (Mika Tawou, Keulthieu, Calail Christ, etc.) dans leur bio ou leurs descriptions YouTube : un lien venant d'un autre site compte plus qu'un lien de soi-même.
+6. Demander aux **médias et blogs musique** du Sénégal (rap, culture urbaine) un article ou une mention de l'appel à candidatures, avec le lien.
+7. Publier le lien dans les **groupes et communautés** d'artistes (Facebook, WhatsApp, Discord) quand les règles le permettent, jamais en spam.
+8. Utiliser le **même nom** partout : « Run & Gun · Norta Films » (nom affiché), et toujours le même lien : cohérence = confiance pour les moteurs.
+9. Après la sortie des clips de la saison, publier les **clips sur YouTube** avec titre, description et sous-titres en français, et ajouter les vidéos à la page (balisage `VideoObject` avec `uploadDate`).
+10. Relancer la mesure Lighthouse et regarder le rapport « Performances » de Search Console toutes les 2 semaines ; corriger ce qui est signalé.
+
+### Ajouter plus tard les autres profils au balisage (`sameAs`)
+
+Quand une page est créée et vérifiée, ajoute son adresse **dans le JSON-LD** (la liste `sameAs` de `Organization`) avec cette commande, depuis `06-site-web` (remplace l'adresse) :
+
+```
+python3 - <<'PY'
+import re, json
+p = "index.html"
+s = open(p, encoding="utf-8").read()
+m = re.search(r'(<script type="application/ld\+json">\n)(.*?)(\n</script>)', s, re.S)
+g = json.loads(m.group(2))
+org = next(n for n in g["@graph"] if n["@type"] == "Organization")
+nouvelle = "https://www.instagram.com/COMPTE_REEL/"   # <- l'adresse confirmée de la page
+if nouvelle not in org["sameAs"]:
+    org["sameAs"].append(nouvelle)
+s = s[:m.start(2)] + json.dumps(g, ensure_ascii=False, indent=1) + s[m.end(2):]
+open(p, "w", encoding="utf-8").write(s)
+PY
+```
+
+Ne mets que des adresses **confirmées** (page créée et en ligne). Les identifiants proposés sont à vérifier dans `04-visuels/pages-run-and-gun/DESCRIPTIONS-DES-PAGES.md`.

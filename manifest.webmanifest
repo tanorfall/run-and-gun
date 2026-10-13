@@ -1,0 +1,16 @@
+{
+  "name": "Run & Gun · Norta Films",
+  "short_name": "Run & Gun",
+  "description": "5 artistes, 5 clips, une journée de tournage chacun, à Dakar. Un programme Norta Films.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#0A0A0B",
+  "theme_color": "#0A0A0B",
+  "icons": [
+    { "src": "img/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "img/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
