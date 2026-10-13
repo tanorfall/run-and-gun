@@ -23,4 +23,4 @@ const NORTA_EMAIL = 'runandgunsn@gmail.com';
 const FORM_ENDPOINT = 'https://run-and-gun-qg.vercel.app/api/candidature';
 
 // Compte Instagram affiché sur le site.
-const NORTA_INSTAGRAM = 'norta_films';
+const NORTA_INSTAGRAM = 'run_and_gun_sn';

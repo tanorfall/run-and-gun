@@ -14,7 +14,7 @@
     wa: typeof NORTA_WHATSAPP === 'string' ? NORTA_WHATSAPP.replace(/\D/g, '') : '',
     email: typeof NORTA_EMAIL === 'string' ? NORTA_EMAIL.trim() : '',
     endpoint: typeof FORM_ENDPOINT === 'string' ? FORM_ENDPOINT.trim() : '',
-    ig: typeof NORTA_INSTAGRAM === 'string' && NORTA_INSTAGRAM ? NORTA_INSTAGRAM.replace(/^@/, '') : 'norta_films'
+    ig: typeof NORTA_INSTAGRAM === 'string' && NORTA_INSTAGRAM ? NORTA_INSTAGRAM.replace(/^@/, '') : 'run_and_gun_sn'
   };
   var waOk = /^\d{8,15}$/.test(cfg.wa);
   var mailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cfg.email) && !/exemple\.com$/i.test(cfg.email);
