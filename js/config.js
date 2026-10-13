@@ -8,7 +8,7 @@
 const NORTA_WHATSAPP = '221779127614';
 
 // Adresse e-mail qui reçoit les candidatures envoyées par e-mail.
-const NORTA_EMAIL = 'tanorfall772@gmail.com';
+const NORTA_EMAIL = 'runandgunsn@gmail.com';
 
 // Adresse qui enregistre les candidatures dans l'app de pilotage de l'équipe (09-app-pilotage).
 // Le site y envoie chaque candidature (champs + fichier audio de 10 Mo max) en multipart/form-data.
