@@ -183,9 +183,9 @@ En dessous de 4 Mo, rien ne change (le fichier part avec le formulaire). Si le Q
 |---|---|---|---|---|
 | Avant (URL publique, 13/10/2026) | 70 | 93 | 100 | 100 |
 | Après (serveur local, 13/10/2026) | 84 | 97 | 100 | 100 |
-| Après (URL publique) | PUBLIC_PERF | PUBLIC_A11Y | PUBLIC_BP | PUBLIC_SEO |
+| Après (URL publique) | 71 | 97 | 100 | 100 |
 
-Ce qui reste volontairement : le clap d'ouverture (3,2 s) retarde le « plus grand affichage » (LCP) ; les mots de l'histoire qui s'éclaircissent au défilement sont signalés « contraste » par Lighthouse dans leur état de départ ; GitHub Pages impose 10 minutes de cache et sa propre compression. Le score local n'applique ni cache ni compression : la mesure publique fait foi.
+Le score Performance public bouge peu : le temps d'affichage mesuré est dominé par le clap d'ouverture, conservé volontairement. Ce qui reste : le clap d'ouverture (3,2 s) retarde le « plus grand affichage » (LCP) ; les mots de l'histoire qui s'éclaircissent au défilement sont signalés « contraste » par Lighthouse dans leur état de départ ; GitHub Pages impose 10 minutes de cache et sa propre compression. Le score local n'applique ni cache ni compression : la mesure publique fait foi.
 
 Relancer la mesure : `cd 05-sources/tools && npx --yes lighthouse@12 https://tanorfall.github.io/run-and-gun/ --chrome-path="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --only-categories=seo,performance,accessibility,best-practices --form-factor=mobile --output=html --output-path=rapport.html --chrome-flags="--headless=new"`
 
