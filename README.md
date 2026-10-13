@@ -145,3 +145,11 @@ L'image qui s'affiche quand on partage le lien sur WhatsApp, Instagram ou Facebo
 - **Barre de navigation en bas** : visible uniquement sur mobile et tablette (moins de 900 px). Elle mène à Histoire, Clips, Postuler, Le deal et FAQ, et surligne la section en cours. Sur ordinateur, c'est le menu du haut.
 - **Bande défilante sous le hero** : retirée.
 - **Galerie « Coulisses »** : les photos surexposées sont remplacées par des recadrages en noir et blanc.
+
+## Fichier audio jusqu'à 10 Mo, même en ligne (mise à jour du 13 octobre 2026)
+La fonction en ligne du QG limite une requête à 4,5 Mo. Pour garder les 10 Mo annoncés, `js/form.js` fait ceci quand le fichier dépasse **4 Mo** :
+1. il demande une adresse de dépôt signée au QG (`POST …/api/candidature/audio`) ;
+2. il envoie le fichier **directement au stockage** (barre de progression) ;
+3. il envoie le formulaire **sans le fichier**, avec la clé du fichier (`son_cle`, `son_ticket`, `son_nom`). Le QG relit le fichier et vérifie que c'est bien de l'audio.
+
+En dessous de 4 Mo, rien ne change (le fichier part avec le formulaire). Si le QG répond « dépôt direct indisponible » (501, par exemple avec le QG local), le site retombe sur l'envoi classique.

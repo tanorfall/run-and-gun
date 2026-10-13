@@ -550,11 +550,38 @@
 
     var fd = new FormData();
     Object.keys(d).forEach(function (k) { fd.append(k, d[k]); });
-    if (chosenFile) fd.append('son_fichier', chosenFile, chosenFile.name);
 
     summary.hidden = true;
     setBusy(true);
 
+    // Gros fichier : dépôt direct chez le stockage (la fonction en ligne limite une requête à 4,5 Mo).
+    // Si le serveur ne propose pas le dépôt direct (501), on retombe sur l'envoi classique avec le formulaire.
+    if (chosenFile && chosenFile.size > DIRECT_MIN) {
+      directUpload(chosenFile, fd, d, msg);
+    } else {
+      if (chosenFile) fd.append('son_fichier', chosenFile, chosenFile.name);
+      postForm(fd, d, msg);
+    }
+  }
+
+  // Au-delà de ce poids, le fichier ne passe pas dans la requête du formulaire (limite 4,5 Mo de la fonction en ligne).
+  var DIRECT_MIN = 4 * 1024 * 1024;
+
+  function apiBase() { return endpoint.replace(/\/api\/candidature\/?$/, ''); }
+
+  function failNet(d, msg, texte) {
+    setBusy(false);
+    showSent(d, msg, texte || 'Impossible de joindre le serveur de Norta Films (connexion coupée ou serveur indisponible).');
+  }
+
+  function showStep(label, pct) {
+    up.classList.remove('is-waiting');
+    upLabel.textContent = label;
+    setProgress(pct);
+  }
+
+  // Envoi du formulaire (avec ou sans fichier) vers l'app.
+  function postForm(fd, d, msg) {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', endpoint, true);
     xhr.setRequestHeader('Accept', 'application/json'); // pas de Content-Type : le navigateur ajoute la frontière multipart
@@ -573,14 +600,67 @@
       setBusy(false);
       handleResponse(xhr.status, body, d, msg);
     });
-    var fail = function () {
-      setBusy(false);
-      showSent(d, msg, 'Impossible de joindre le serveur de Norta Films (connexion coupée ou serveur indisponible).');
-    };
+    var fail = function () { failNet(d, msg); };
     xhr.addEventListener('error', fail);
     xhr.addEventListener('timeout', fail);
     xhr.addEventListener('abort', fail);
     xhr.send(fd);
+  }
+
+  // Dépôt direct : 1) adresse signée, 2) PUT du fichier chez le stockage, 3) formulaire avec la clé du fichier.
+  function directUpload(file, fd, d, msg) {
+    showStep('Préparation de l’envoi du fichier…', 0);
+    var x1 = new XMLHttpRequest();
+    x1.open('POST', apiBase() + '/api/candidature/audio', true);
+    x1.setRequestHeader('Content-Type', 'application/json');
+    x1.setRequestHeader('Accept', 'application/json');
+    x1.timeout = 30000;
+    x1.addEventListener('load', function () {
+      var b = null;
+      try { b = JSON.parse(x1.responseText); } catch (e) {}
+      if (x1.status === 501) { // dépôt direct indisponible : envoi classique
+        fd.append('son_fichier', file, file.name);
+        postForm(fd, d, msg);
+        return;
+      }
+      if (x1.status < 200 || x1.status >= 300 || !b || !b.ok || !b.url) {
+        setBusy(false);
+        handleResponse(x1.status || 500, b, d, msg);
+        return;
+      }
+      // 2) dépôt du fichier chez le stockage
+      var body = new FormData();
+      body.append('cacheControl', '3600');
+      body.append('', file);
+      var x2 = new XMLHttpRequest();
+      x2.open('PUT', b.url, true);
+      x2.timeout = 5 * 60 * 1000;
+      showStep('Envoi de ton fichier audio…', 0);
+      x2.upload.addEventListener('progress', function (e) {
+        if (e.lengthComputable) setProgress(e.loaded / e.total * 100);
+      });
+      x2.addEventListener('load', function () {
+        if (x2.status < 200 || x2.status >= 300) {
+          failNet(d, msg, 'Le fichier audio n’a pas pu être envoyé. Envoie plutôt un lien vers ton son, ou réessaie.');
+          return;
+        }
+        // 3) formulaire, sans le fichier, avec la clé et le ticket
+        fd.append('son_cle', b.cle);
+        fd.append('son_ticket', b.ticket);
+        fd.append('son_nom', file.name);
+        postForm(fd, d, msg);
+      });
+      var fail2 = function () { failNet(d, msg, 'Le fichier audio n’a pas pu être envoyé (connexion coupée). Réessaie, ou envoie un lien vers ton son.'); };
+      x2.addEventListener('error', fail2);
+      x2.addEventListener('timeout', fail2);
+      x2.addEventListener('abort', fail2);
+      x2.send(body);
+    });
+    var fail1 = function () { failNet(d, msg); };
+    x1.addEventListener('error', fail1);
+    x1.addEventListener('timeout', fail1);
+    x1.addEventListener('abort', fail1);
+    x1.send(JSON.stringify({ nom_fichier: file.name, taille: file.size }));
   }
 
   form.addEventListener('submit', function (e) {
