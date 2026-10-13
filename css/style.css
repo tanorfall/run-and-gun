@@ -173,6 +173,7 @@ html.lenis, html.lenis body { height: auto; }
 .hero__title { font-size: calc((min(100vw, 1920px) - 2 * var(--pad)) / 6.4); margin-left: -.02em; }
 .hero__title .rg { display: flex; }
 .hero__sub { font-weight: 700; letter-spacing: -.02em; line-height: 1.1; font-size: clamp(1.45rem, 3.2vw, 2.9rem); margin-top: clamp(14px, 2.6vh, 30px); max-width: 20em; }
+.hero__price { display: block; margin-top: .35em; font-size: .55em; font-weight: 600; letter-spacing: 0; opacity: .85; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(20px, 3.4vh, 36px); }
 .hero__foot { display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--grey); padding: 0 10px 8px; }
 .hero__scroll { display: none; align-items: center; gap: 10px; }

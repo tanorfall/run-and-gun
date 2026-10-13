@@ -348,7 +348,7 @@
     L.push('Présentation :');
     L.push(d.presentation);
     L.push('');
-    L.push('✔ Je confirme pouvoir régler 150 000 FCFA en cash sous 72 h si je suis sélectionné.');
+    L.push('✔ Je m’engage à régler les 150 000 FCFA (tout compris) en cash sous 72 h si je suis sélectionné.');
     L.push('✔ J’accepte que Norta Films me contacte au sujet de ma candidature.');
     return L.join('\n');
   }

@@ -131,6 +131,11 @@ L'image qui s'affiche quand on partage le lien sur WhatsApp, Instagram ou Facebo
 - Les animations utilisent GSAP, ScrollTrigger et Lenis, chargés depuis Internet (cdnjs et jsdelivr). Sans connexion à ces services, le site reste complet, simplement sans animations.
 - Polices : Archivo, Geist Mono et Instrument Serif, chargées depuis Google Fonts.
 
+## Règle du forfait (13 octobre 2026)
+- **150 000 FCFA, tout compris.** Norta Films finance et organise le transport, les repas et l'eau, les lieux et autorisations, et le maquillage. Restent à l'artiste ses tenues, ses accessoires, ses figurants (avec leurs autorisations de droit à l'image) et tout supplément demandé hors du concept, validé par écrit avant.
+- Le forfait est ferme : Norta absorbe un dépassement sur ce qu'il finance. Source de vérité : `01-concept/regle-forfait-150k.md`.
+- Modifié : hero, section « Le deal » (colonnes « Norta Films apporte » / « De ton côté »), étape 3 et 4, mini-liste et case d'engagement du formulaire, FAQ (inclus, ce qui reste, dépassement, lieux), meta description / Open Graph, message WhatsApp / e-mail (`js/form.js`).
+
 ## Mises à jour du 12 octobre 2026 (version en ligne)
 - **Prix** : le tarif passe à **150 000 FCFA (150K)** partout (deal, étapes, formulaire, FAQ, message WhatsApp / e-mail). L'image de partage ne contient pas de prix, elle est inchangée.
 - **Clips** : uniquement des clips musicaux. Les publicités et les documentaires sont retirés, et 4 clips sont ajoutés (Calail Christ, Xhalil Xms, Le Dôgô, Mnsieur Kash). Les miniatures sont stockées dans `img/`.
